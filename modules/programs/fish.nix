@@ -187,6 +187,9 @@ let
     };
   };
 
+  bindsStr = concatStringsSep "\n"
+    (mapAttrsToList (k: v: "bind ${k} ${escapeShellArg v}") cfg.shellBinds);
+
   abbrsStr = concatStringsSep "\n" (mapAttrsToList (name: def:
     let
       mods = with def;
@@ -282,6 +285,20 @@ in {
           An attribute set that maps aliases (the top level attribute names
           in this option) to abbreviations. Abbreviations are expanded with
           the longer phrase after they are entered.
+        '';
+      };
+
+      shellBinds = mkOption {
+        type = with types; attrsOf str;
+        default = { };
+        example = literalExpression ''
+          {
+            "\cg" = "git diff; commandline -f repaint";
+          }
+        '';
+        description = ''
+          An attribute set that maps a sequence of characters (the top level attribute names
+          in this option) to command strings or directly to build outputs.
         '';
       };
 
@@ -461,6 +478,9 @@ in {
 
           # Aliases
           ${aliasesStr}
+
+          # Binds
+          ${bindsStr}
 
           # Interactive shell initialisation
           ${cfg.interactiveShellInit}
