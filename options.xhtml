@@ -18896,7 +18896,10 @@ Some pre-packaged add-ons are accessible from the
 <a class="link" href="https://github.com/nix-community/NUR"  target="_top">Nix User Repository</a>.
 Once you have NUR installed run</p><pre><code class="programlisting console">$ nix-env -f &#x27;&lt;nixpkgs&gt;&#x27; -qaP -A nur.repos.rycee.firefox-addons
 </code></pre><p>to list the available Firefox add-ons.</p><p>Note that it is necessary to manually enable these extensions
-inside Firefox after the first installation.</p>
+inside Firefox after the first installation.</p><p>To automatically enable extensions add
+<code class="literal">&quot;extensions.autoDisableScopes&quot; = 0;</code>
+to
+<a class="link" href="options.xhtml#opt-programs.firefox.profiles._name_.settings"  ><code class="option">programs.firefox.profiles.&lt;profile&gt;.settings</code></a></p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of package</p>
@@ -19820,6 +19823,91 @@ attribute set of section of an INI file (attrs of INI atom (null, bool, int, flo
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/foot.nix" target="_top">
 &lt;home-manager/modules/programs/foot.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.freetube.enable"></a><a class="term" href="options.xhtml#opt-programs.freetube.enable"><code class="option">programs.freetube.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable FreeTube, a YT client for Windows, Mac, and Linux.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/freetube.nix" target="_top">
+&lt;home-manager/modules/programs/freetube.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.freetube.package"></a><a class="term" href="options.xhtml#opt-programs.freetube.package"><code class="option">programs.freetube.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The freetube package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.freetube</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/freetube.nix" target="_top">
+&lt;home-manager/modules/programs/freetube.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.freetube.settings"></a><a class="term" href="options.xhtml#opt-programs.freetube.settings"><code class="option">programs.freetube.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration settings for FreeTube.</p><p>All configurable options can be deduced by enabling them through the
+GUI and observing the changes in <code class="filename">settings.db</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  allowDashAv1Formats = true;
+  checkForUpdates     = false;
+  defaultQuality      = &quot;1080&quot;;
+  baseTheme           = &quot;catppuccinMocha&quot;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/freetube.nix" target="_top">
+&lt;home-manager/modules/programs/freetube.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -32057,6 +32145,38 @@ list of string</p>
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
   &quot;gpu-hq&quot;
 ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/mpv.nix" target="_top">
+&lt;home-manager/modules/programs/mpv.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.mpv.extraInput"></a><a class="term" href="options.xhtml#opt-programs.mpv.extraInput"><code class="option">programs.mpv.extraInput</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Additional lines that are appended to <code class="filename">$XDG_CONFIG_HOME/mpv/input.conf</code>.
+See <span class="citerefentry"><span class="refentrytitle">mpv</span>(1)</span> for the full list of options.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  esc         quit                        #! Quit
+  #           script-binding uosc/video   #! Video tracks
+  # additional comments
+&#x27;&#x27;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -46514,6 +46634,30 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.thefuck.enableNushellIntegration"></a><a class="term" href="options.xhtml#opt-programs.thefuck.enableNushellIntegration"><code class="option">programs.thefuck.enableNushellIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Nushell integration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thefuck.nix" target="_top">
+&lt;home-manager/modules/programs/thefuck.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.thefuck.enableZshIntegration"></a><a class="term" href="options.xhtml#opt-programs.thefuck.enableZshIntegration"><code class="option">programs.thefuck.enableZshIntegration</code>
   </a>
  </span>
@@ -56658,6 +56802,30 @@ package</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.cliphist.allowImages"></a><a class="term" href="options.xhtml#opt-services.cliphist.allowImages"><code class="option">services.cliphist.allowImages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Store images in clipboard history.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/cliphist.nix" target="_top">
+&lt;home-manager/modules/services/cliphist.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.cliphist.systemdTarget"></a><a class="term" href="options.xhtml#opt-services.cliphist.systemdTarget"><code class="option">services.cliphist.systemdTarget</code>
   </a>
  </span>
@@ -56963,6 +57131,84 @@ non-empty (list of non-empty string)</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/comodoro.nix" target="_top">
 &lt;home-manager/modules/services/comodoro.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.conky.enable"></a><a class="term" href="options.xhtml#opt-services.conky.enable"><code class="option">services.conky.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Conky, a light-weight system monitor.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/conky.nix" target="_top">
+&lt;home-manager/modules/services/conky.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.conky.package"></a><a class="term" href="options.xhtml#opt-services.conky.package"><code class="option">services.conky.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The conky package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.conky</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/conky.nix" target="_top">
+&lt;home-manager/modules/services/conky.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.conky.extraConfig"></a><a class="term" href="options.xhtml#opt-services.conky.extraConfig"><code class="option">services.conky.extraConfig</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration used by the Conky daemon. Check
+<a class="link" href="https://github.com/brndnmtthws/conky/wiki/Configurations"  target="_top">https://github.com/brndnmtthws/conky/wiki/Configurations</a> for
+options. If not set, the default configuration, as described by
+<span class="command"><strong>conky --print-config</strong></span>, will be used.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/conky.nix" target="_top">
+&lt;home-manager/modules/services/conky.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -65319,6 +65565,62 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.psd.enable"></a><a class="term" href="options.xhtml#opt-services.psd.enable"><code class="option">services.psd.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Profile-sync-daemon service.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/psd.nix" target="_top">
+&lt;home-manager/modules/services/psd.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.psd.resyncTimer"></a><a class="term" href="options.xhtml#opt-services.psd.resyncTimer"><code class="option">services.psd.resyncTimer</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The amount of time to wait before syncing browser profiles back to the
+disk.</p><p>Takes a systemd time span, see <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>. The time unit
+defaults to seconds if omitted.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;1h&quot;</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;1h 30min&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/psd.nix" target="_top">
+&lt;home-manager/modules/services/psd.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.pueue.enable"></a><a class="term" href="options.xhtml#opt-services.pueue.enable"><code class="option">services.pueue.enable</code>
   </a>
  </span>
@@ -67277,6 +67579,150 @@ positive integer, meaning &gt;0</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/swayidle.nix" target="_top">
 &lt;home-manager/modules/services/swayidle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.swaync.enable"></a><a class="term" href="options.xhtml#opt-services.swaync.enable"><code class="option">services.swaync.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Swaync notification daemon.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/swaync.nix" target="_top">
+&lt;home-manager/modules/services/swaync.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.swaync.package"></a><a class="term" href="options.xhtml#opt-services.swaync.package"><code class="option">services.swaync.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The swaynotificationcenter package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.swaynotificationcenter</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/swaync.nix" target="_top">
+&lt;home-manager/modules/services/swaync.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.swaync.settings"></a><a class="term" href="options.xhtml#opt-services.swaync.settings"><code class="option">services.swaync.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/swaync/config.json</code>.
+See
+<a class="link" href="https://github.com/ErikReider/SwayNotificationCenter/blob/main/src/configSchema.json"  target="_top">https://github.com/ErikReider/SwayNotificationCenter/blob/main/src/configSchema.json</a>
+for the documentation.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  positionX = &quot;right&quot;;
+  positionY = &quot;top&quot;;
+  layer = &quot;overlay&quot;;
+  control-center-layer = &quot;top&quot;;
+  layer-shell = true;
+  cssPriority = &quot;application&quot;;
+  control-center-margin-top = 0;
+  control-center-margin-bottom = 0;
+  control-center-margin-right = 0;
+  control-center-margin-left = 0;
+  notification-2fa-action = true;
+  notification-inline-replies = false;
+  notification-icon-size = 64;
+  notification-body-image-height = 100;
+  notification-body-image-width = 200
+};
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/swaync.nix" target="_top">
+&lt;home-manager/modules/services/swaync.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.swaync.style"></a><a class="term" href="options.xhtml#opt-services.swaync.style"><code class="option">services.swaync.style</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>CSS style of the bar. See
+<a class="link" href="https://github.com/ErikReider/SwayNotificationCenter/blob/main/src/style.css"  target="_top">https://github.com/ErikReider/SwayNotificationCenter/blob/main/src/style.css</a>
+for the documentation.</p><p>If the value is set to a path literal, then the path will be used as the CSS file.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or path or strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  .notification-row {
+    outline: none;
+  }
+  
+  .notification-row:focus,
+  .notification-row:hover {
+    background: @noti-bg-focus;
+  }
+  
+  .notification {
+    border-radius: 12px;
+    margin: 6px 12px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
+      0 2px 6px 2px rgba(0, 0, 0, 0.3);
+    padding: 0;
+  }
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/swaync.nix" target="_top">
+&lt;home-manager/modules/services/swaync.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -72814,6 +73260,41 @@ package <span class="emphasis"><em>(read only)</em></span></p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-wayland.windowManager.hyprland.importantPrefixes"></a><a class="term" href="options.xhtml#opt-wayland.windowManager.hyprland.importantPrefixes"><code class="option">wayland.windowManager.hyprland.importantPrefixes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of prefix of attributes to source at the top of the config.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">[
+  &quot;$&quot;
+  &quot;bezier&quot;
+  &quot;name&quot;
+  &quot;source&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
+  &quot;$&quot;
+  &quot;bezier&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/hyprland.nix" target="_top">
+&lt;home-manager/modules/services/window-managers/hyprland.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-wayland.windowManager.hyprland.plugins"></a><a class="term" href="options.xhtml#opt-wayland.windowManager.hyprland.plugins"><code class="option">wayland.windowManager.hyprland.plugins</code>
   </a>
  </span>
@@ -77381,7 +77862,10 @@ attribute set of ((list of string) or ((list of string) or string) convertible t
  </span>
 </dt>
 <dd>
-<p>Whether to enable <a class="link" href="https://github.com/flatpak/xdg-desktop-portal"  target="_top">XDG desktop integration</a>.</p>
+<p>Whether to enable <a class="link" href="https://github.com/flatpak/xdg-desktop-portal"  target="_top">XDG desktop integration</a>.</p><p>Note, if you use the NixOS module and have <code class="literal">useUserPackages = true</code>,
+make sure to add</p><pre><code class="programlisting  nix">environment.pathsToLink = [ &quot;/share/xdg-desktop-portal&quot; &quot;/share/applications&quot; ];
+</code></pre><p>to your system configuration so that the portal definitions and DE
+provided configurations get linked.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
