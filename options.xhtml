@@ -22050,6 +22050,200 @@ path or strings concatenated with “\n”</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.gnome-shell.enable"></a><a class="term" href="options.xhtml#opt-programs.gnome-shell.enable"><code class="option">programs.gnome-shell.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable GNOME Shell customization.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-shell.nix" target="_top">
+&lt;home-manager/modules/programs/gnome-shell.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gnome-shell.extensions"></a><a class="term" href="options.xhtml#opt-programs.gnome-shell.extensions"><code class="option">programs.gnome-shell.extensions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of GNOME Shell extensions.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
+  { package = pkgs.gnomeExtensions.dash-to-panel; }
+  {
+    id = &quot;user-theme@gnome-shell-extensions.gcampax.github.com&quot;;
+    package = pkgs.gnome.gnome-shell-extensions;
+  }
+]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-shell.nix" target="_top">
+&lt;home-manager/modules/programs/gnome-shell.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gnome-shell.extensions._.package"></a><a class="term" href="options.xhtml#opt-programs.gnome-shell.extensions._.package"><code class="option">programs.gnome-shell.extensions.*.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Package providing a GNOME Shell extension in
+<code class="literal">$out/share/gnome-shell/extensions/${id}</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;pkgs.gnome.gnome-shell-extensions&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-shell.nix" target="_top">
+&lt;home-manager/modules/programs/gnome-shell.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gnome-shell.extensions._.id"></a><a class="term" href="options.xhtml#opt-programs.gnome-shell.extensions._.id"><code class="option">programs.gnome-shell.extensions.*.id</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>ID of the GNOME Shell extension. If not provided, it
+will be obtained from <code class="literal">package.extensionUuid</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;user-theme@gnome-shell-extensions.gcampax.github.com&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-shell.nix" target="_top">
+&lt;home-manager/modules/programs/gnome-shell.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gnome-shell.theme"></a><a class="term" href="options.xhtml#opt-programs.gnome-shell.theme"><code class="option">programs.gnome-shell.theme</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Theme to use for GNOME Shell.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  name = &quot;Plata-Noir&quot;;
+  package = pkgs.plata-theme;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-shell.nix" target="_top">
+&lt;home-manager/modules/programs/gnome-shell.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gnome-shell.theme.package"></a><a class="term" href="options.xhtml#opt-programs.gnome-shell.theme.package"><code class="option">programs.gnome-shell.theme.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Package providing a GNOME Shell theme in
+<code class="literal">$out/share/themes/${name}/gnome-shell</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">pkgs.plata-theme</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-shell.nix" target="_top">
+&lt;home-manager/modules/programs/gnome-shell.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gnome-shell.theme.name"></a><a class="term" href="options.xhtml#opt-programs.gnome-shell.theme.name"><code class="option">programs.gnome-shell.theme.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Name of the GNOME Shell theme.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;Plata-Noir&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gnome-shell.nix" target="_top">
+&lt;home-manager/modules/programs/gnome-shell.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.gnome-terminal.enable"></a><a class="term" href="options.xhtml#opt-programs.gnome-terminal.enable"><code class="option">programs.gnome-terminal.enable</code>
   </a>
  </span>
@@ -26856,6 +27050,30 @@ package</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.jujutsu</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/jujutsu.nix" target="_top">
+&lt;home-manager/modules/programs/jujutsu.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.jujutsu.ediff"></a><a class="term" href="options.xhtml#opt-programs.jujutsu.ediff"><code class="option">programs.jujutsu.ediff</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Enable ediff as a merge tool</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">config.programs.emacs.enable</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -56826,6 +57044,35 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.cliphist.extraOptions"></a><a class="term" href="options.xhtml#opt-services.cliphist.extraOptions"><code class="option">services.cliphist.extraOptions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Flags to append to the cliphist command.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">[
+  &quot;-max-dedupe-search&quot;
+  &quot;10&quot;
+  &quot;-max-items&quot;
+  &quot;500&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/cliphist.nix" target="_top">
+&lt;home-manager/modules/services/cliphist.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.cliphist.systemdTarget"></a><a class="term" href="options.xhtml#opt-services.cliphist.systemdTarget"><code class="option">services.cliphist.systemdTarget</code>
   </a>
  </span>
@@ -60786,6 +61033,136 @@ attribute set of (JSON value)</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hound.nix" target="_top">
 &lt;home-manager/modules/services/hound.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.hypridle.enable"></a><a class="term" href="options.xhtml#opt-services.hypridle.enable"><code class="option">services.hypridle.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Hypridle, Hyprland’s idle daemon.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hypridle.nix" target="_top">
+&lt;home-manager/modules/services/hypridle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.hypridle.package"></a><a class="term" href="options.xhtml#opt-services.hypridle.package"><code class="option">services.hypridle.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The hypridle package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.hypridle</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hypridle.nix" target="_top">
+&lt;home-manager/modules/services/hypridle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.hypridle.importantPrefixes"></a><a class="term" href="options.xhtml#opt-services.hypridle.importantPrefixes"><code class="option">services.hypridle.importantPrefixes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of prefix of attributes to source at the top of the config.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">[
+  &quot;$&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
+  &quot;$&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hypridle.nix" target="_top">
+&lt;home-manager/modules/services/hypridle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.hypridle.settings"></a><a class="term" href="options.xhtml#opt-services.hypridle.settings"><code class="option">services.hypridle.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Hypridle configuration written in Nix. Entries with the same key
+should be written as lists. Variables’ and colors’ names should be
+quoted. See <a class="link" href="https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/"  target="_top">https://wiki.hyprland.org/Hypr-Ecosystem/hypridle/</a> for more examples.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+Hypridle configuration value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  general = {
+    after_sleep_cmd = &quot;hyprctl dispatch dpms on&quot;;
+    ignore_dbus_inhibit = false;
+    lock_cmd = &quot;hyprlock&quot;;
+  };
+
+  listener = [
+    {
+      timeout = 900;
+      on-timeout = &quot;hyprlock&quot;;
+    }
+    {
+      timeout = 1200;
+      on-timeout = &quot;hyprctl dispatch dpms off&quot;;
+      on-resume = &quot;hyprctl dispatch dpms on&quot;;
+    }
+  ];
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hypridle.nix" target="_top">
+&lt;home-manager/modules/services/hypridle.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -69863,10 +70240,13 @@ package</p>
 <p>Gamma value to use.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+string or floating point number or signed integer</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">&quot;1.0&quot;</code></p>
+<code class="literal">1.0</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">0.6</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -69888,7 +70268,13 @@ string</p>
 <code class="literal">90.0</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+null or string or floating point number or signed integer</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">-74.3</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -69910,7 +70296,91 @@ string</p>
 <code class="literal">180.0</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+null or string or floating point number or signed integer</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">12.5</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/wlsunset.nix" target="_top">
+&lt;home-manager/modules/services/wlsunset.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.wlsunset.output"></a><a class="term" href="options.xhtml#opt-services.wlsunset.output"><code class="option">services.wlsunset.output</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Name of output to use, by default all outputs are used.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/wlsunset.nix" target="_top">
+&lt;home-manager/modules/services/wlsunset.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.wlsunset.sunrise"></a><a class="term" href="options.xhtml#opt-services.wlsunset.sunrise"><code class="option">services.wlsunset.sunrise</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The time when the sun rises (in 24 hour format).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;06:30&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/wlsunset.nix" target="_top">
+&lt;home-manager/modules/services/wlsunset.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.wlsunset.sunset"></a><a class="term" href="options.xhtml#opt-services.wlsunset.sunset"><code class="option">services.wlsunset.sunset</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The time when the sun sets (in 24 hour format).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;18:00&quot;</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
