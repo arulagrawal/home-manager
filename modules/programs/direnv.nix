@@ -130,40 +130,33 @@ in {
         ${getExe cfg.package} hook fish | source
       '');
 
-    programs.nushell.extraConfig = mkIf cfg.enableNushellIntegration (
-      # Using mkAfter to make it more likely to appear after other
-      # manipulations of the prompt.
-      mkAfter ''
-        $env.config = ($env.config? | default {})
-        $env.config.hooks = ($env.config.hooks? | default {})
-        $env.config.hooks.pre_prompt = (
-            $env.config.hooks.pre_prompt?
-            | default []
-            | append {||
-                let direnv = (${getExe cfg.package} export json
-                | from json
-                | default {})
-                if ($direnv | is-empty) {
-                    return
-                }
-                $direnv
-                | items {|key, value|
-                    {
-                        key: $key
-                        value: (do (
-                            $env.ENV_CONVERSIONS?
-                            | default {}
-                            | get -i $key
-                            | get -i from_string
-                            | default {|x| $x}
-                        ) $value)
-                    }
-                }
-                | transpose -ird
-                | load-env
-            }
-        )
-      '');
+    # Using mkAfter to make it more likely to appear after other
+    # manipulations of the prompt.
+    programs.nushell.extraConfig = mkIf cfg.enableNushellIntegration (mkAfter ''
+      $env.config = ($env.config? | default {})
+      $env.config.hooks = ($env.config.hooks? | default {})
+      $env.config.hooks.pre_prompt = (
+          $env.config.hooks.pre_prompt?
+          | default []
+          | append {||
+              ${getExe cfg.package} export json
+              | from json --strict
+              | default {}
+              | items {|key, value|
+                  let value = do (
+                      $env.ENV_CONVERSIONS?
+                      | default {}
+                      | get -i $key
+                      | get -i from_string
+                      | default {|x| $x}
+                  ) $value
+                  return [ $key $value ]
+              }
+              | into record
+              | load-env
+          }
+      )
+    '');
 
     home.sessionVariables = lib.mkIf cfg.silent { DIRENV_LOG_FORMAT = ""; };
   };
