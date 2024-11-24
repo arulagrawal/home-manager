@@ -31,6 +31,7 @@ let
     ./misc/gtk.nix
     ./misc/lib.nix
     ./misc/news.nix
+    ./misc/nixgl.nix
     ./misc/numlock.nix
     ./misc/pam.nix
     ./misc/qt.nix
@@ -351,6 +352,7 @@ let
     ./services/plan9port.nix
     ./services/playerctld.nix
     ./services/plex-mpv-shim.nix
+    ./services/podman-linux
     ./services/polybar.nix
     ./services/poweralertd.nix
     ./services/psd.nix
