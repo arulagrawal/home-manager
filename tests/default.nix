@@ -79,6 +79,7 @@ in import nmtSrc {
     ./modules/programs/gallery-dl
     ./modules/programs/gh
     ./modules/programs/gh-dash
+    ./modules/programs/ghostty
     ./modules/programs/git
     ./modules/programs/git-cliff
     ./modules/programs/git-credential-oauth
@@ -98,8 +99,10 @@ in import nmtSrc {
     ./modules/programs/khal
     ./modules/programs/khard
     ./modules/programs/kitty
+    ./modules/programs/kubecolor
     ./modules/programs/ledger
     ./modules/programs/less
+    ./modules/programs/lesspipe
     ./modules/programs/lf
     ./modules/programs/lsd
     ./modules/programs/lieer
@@ -118,12 +121,14 @@ in import nmtSrc {
     ./modules/programs/newsboat
     ./modules/programs/nheko
     ./modules/programs/nix-index
+    ./modules/programs/nix-your-shell
     ./modules/programs/nnn
     ./modules/programs/nushell
     ./modules/programs/oh-my-posh
     ./modules/programs/openstackclient
     ./modules/programs/pandoc
     ./modules/programs/papis
+    ./modules/programs/pay-respects
     ./modules/programs/pet
     ./modules/programs/pistol
     ./modules/programs/pls
@@ -196,6 +201,7 @@ in import nmtSrc {
     ./modules/programs/beets # One test relies on services.mpd
     ./modules/programs/bemenu
     ./modules/programs/boxxy
+    ./modules/programs/cavalier
     ./modules/programs/firefox/firefox.nix
     ./modules/programs/firefox/floorp.nix
     ./modules/programs/foot
@@ -238,6 +244,7 @@ in import nmtSrc {
     ./modules/services/cliphist
     ./modules/services/clipman
     ./modules/services/comodoro
+    ./modules/services/copyq
     ./modules/services/conky
     ./modules/services/darkman
     ./modules/services/devilspie2
@@ -287,6 +294,7 @@ in import nmtSrc {
     ./modules/services/trayscale
     ./modules/services/twmn
     ./modules/services/udiskie
+    ./modules/services/volnoti
     ./modules/services/window-managers/bspwm
     ./modules/services/window-managers/herbstluftwm
     ./modules/services/window-managers/hyprland

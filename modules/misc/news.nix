@@ -1827,6 +1827,126 @@ in {
           as systemd services.
         '';
       }
+
+      {
+        time = "2024-12-01T19:17:40+00:00";
+        message = ''
+          A new module is available: 'programs.nix-your-shell'.
+
+          nix-your-shell is a wrapper for `nix develop` or `nix-shell` to retain
+          the same shell inside the new environment.
+        '';
+      }
+
+      {
+        time = "2024-12-01T19:34:04+00:00";
+        message = ''
+          A new module is available: 'programs.kubecolor'.
+
+          Kubecolor is a kubectl wrapper used to add colors to your kubectl
+          output.
+        '';
+      }
+
+      {
+        time = "2024-12-04T20:00:00+00:00";
+        condition = let
+          sCfg = config.programs.starship;
+          fCfg = config.programs.fish;
+        in sCfg.enable && sCfg.enableFishIntegration && fCfg.enable;
+        message = ''
+          A new option 'programs.starship.enableInteractive' is available for
+          the Fish shell that only enables starship if the shell is interactive.
+
+          Some plugins require this to be set to 'false' to function correctly.
+        '';
+      }
+
+      {
+        time = "2024-12-08T17:22:13+00:00";
+        condition = let
+          usingMbsync = any (a: a.mbsync.enable)
+            (attrValues config.accounts.email.accounts);
+        in usingMbsync;
+        message = ''
+          isync/mbsync 1.5.0 has changed several things.
+
+          isync gained support for using $XDG_CONFIG_HOME, and now places
+          its config file in '$XDG_CONFIG_HOME/isyncrc'.
+
+          isync changed the configuration options SSLType and SSLVersion to
+          TLSType and TLSVersion respectively.
+
+          All instances of
+          'accounts.email.accounts.<account-name>.mbsync.extraConfig.account'
+          that use 'SSLType' or 'SSLVersion' should be replaced with 'TLSType'
+          or 'TLSVersion', respectively.
+
+          TLSType options are unchanged.
+
+          TLSVersions has a new syntax, requiring a change to the Nix syntax.
+          Old Syntax: SSLVersions = [ "TLSv1.3" "TLSv1.2" ];
+          New Syntax: TLSVersions = [ "+1.3" "+1.2" "-1.1" ];
+          NOTE: The minus symbol means to NOT use that particular TLS version.
+        '';
+      }
+
+      {
+        time = "2024-12-10T22:20:10+00:00";
+        condition = config.programs.nushell.enable;
+        message = ''
+          The module 'programs.nushell' can now manage the Nushell plugin
+          registry with the option 'programs.nushell.plugins'.
+        '';
+      }
+
+      {
+        time = "2024-12-21T17:07:49+00:00";
+        message = ''
+          A new module is available: 'programs.pay-respects'.
+
+          Pay Respects is a shell command suggestions tool and command-not-found
+          and thefuck replacement written in Rust.
+        '';
+      }
+
+      {
+        time = "2024-12-22T08:24:29+00:00";
+        condition = hostPlatform.isLinux;
+        message = ''
+          A new module is available: 'programs.cavalier'.
+
+          Cavalier is a GUI wrapper around the Cava audio visualizer.
+        '';
+      }
+
+      {
+        time = "2025-01-01T15:31:15+00:00";
+        condition = hostPlatform.isLinux;
+        message = ''
+          The 'systemd.user.startServices' option now defaults to 'true',
+          meaning that services will automatically be restarted as needed when
+          activating a configuration.
+
+          Further, the "legacy" alternative has been removed and will now result
+          in an evaluation error if used.
+
+          The "suggest" alternative will remain for a while longer but may also
+          be deprecated for removal in the future.
+        '';
+      }
+
+      {
+        time = "2025-01-01T23:16:35+00:00";
+        message = ''
+          A new module is available: 'programs.ghostty'.
+
+          Ghostty is a terminal emulator that differentiates itself by being
+          fast, feature-rich, and native. While there are many excellent
+          terminal emulators available, they all force you to choose between
+          speed, features, or native UIs. Ghostty provides all three.
+        '';
+      }
     ];
   };
 }

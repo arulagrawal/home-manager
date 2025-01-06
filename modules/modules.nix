@@ -77,6 +77,7 @@ let
     ./programs/bun.nix
     ./programs/carapace.nix
     ./programs/cava.nix
+    ./programs/cavalier.nix
     ./programs/chromium.nix
     ./programs/cmus.nix
     ./programs/command-not-found/command-not-found.nix
@@ -103,6 +104,7 @@ let
     ./programs/getmail.nix
     ./programs/gh.nix
     ./programs/gh-dash.nix
+    ./programs/ghostty.nix
     ./programs/git-cliff.nix
     ./programs/git-credential-oauth.nix
     ./programs/git.nix
@@ -143,6 +145,7 @@ let
     ./programs/khard.nix
     ./programs/kitty.nix
     ./programs/kodi.nix
+    ./programs/kubecolor.nix
     ./programs/lazygit.nix
     ./programs/ledger.nix
     ./programs/less.nix
@@ -176,6 +179,7 @@ let
     ./programs/nh.nix
     ./programs/nheko.nix
     ./programs/nix-index.nix
+    ./programs/nix-your-shell.nix
     ./programs/nnn.nix
     ./programs/noti.nix
     ./programs/notmuch.nix
@@ -189,6 +193,7 @@ let
     ./programs/pandoc.nix
     ./programs/papis.nix
     ./programs/password-store.nix
+    ./programs/pay-respects.nix
     ./programs/pazi.nix
     ./programs/pet.nix
     ./programs/pidgin.nix
@@ -412,6 +417,7 @@ let
     ./systemd.nix
     ./targets/darwin
     ./targets/generic-linux.nix
+    ./wayland.nix
     ./xresources.nix
     ./xsession.nix
     ./misc/nix.nix
