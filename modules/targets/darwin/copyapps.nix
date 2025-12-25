@@ -79,6 +79,10 @@ in
                 # and we can reset it to ensure the user gets another prompt
                 run /usr/bin/tccutil reset SystemPolicyAppBundles > /dev/null
 
+                printf >&2 'Reset App Management permissions. A system prompt should appear.\n'
+                printf >&2 'Please accept the prompt, then press Enter to continue.\n'
+                read -r
+
                 if ! ensureAppManagement; then
                   printf >&2 '\e[1;31merror: permission denied when trying to update apps, aborting activation\e[0m\n'
                   printf >&2 'home-manager requires permission to update your apps, please accept the notification\n'
